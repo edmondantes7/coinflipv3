@@ -11,7 +11,7 @@
   Counter : <label id="counter"> <%= @user.coinflips.count %> </label> <br>
   </p>
   <p>
-    Coin Result : <label id="display"> </label> <br>
+    Coin Result : <label id="display"> <%= @user.last_coin_flip_result %> </label> <br>
   </p>
   <p>
     <%= f.submit %>

@@ -1,8 +1,8 @@
 
-<h2>Add a comment:</h2>
+<h2>Flip a coin:</h2>
 <%= form_for([@user, @user.coinflips.build]) do |f| %>
   <p>
-    Total :  <label id="total"> 100 </label> <br>    
+  Total :  <label id="total"> <%= @user.balance %> </label> <br>    
   </p>
   <p>
     <%= f.label :bet %><br>  <%= f.text_field :bet %>

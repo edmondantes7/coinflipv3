@@ -4,7 +4,7 @@ class CoinflipsController < ApplicationController
     @coinflip = @user.coinflips.create(user_params)
     @coinflip.coin_result = [true, false].sample
     @coinflip.save
-    # call on user to compute based on bet, coin result and decision
+    # TODO call on user to compute based on bet, coin result and decision
     redirect_to user_path(@user)
   end
  

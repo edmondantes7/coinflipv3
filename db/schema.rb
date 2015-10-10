@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010220457) do
+ActiveRecord::Schema.define(version: 20151010223441) do
 
   create_table "coinflips", force: :cascade do |t|
     t.integer  "bet"
     t.boolean  "coin_result"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.boolean  "winning_flip"
   end
 
   add_index "coinflips", ["user_id"], name: "index_coinflips_on_user_id"

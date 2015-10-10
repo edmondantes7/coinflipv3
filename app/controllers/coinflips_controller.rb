@@ -4,12 +4,13 @@ class CoinflipsController < ApplicationController
     @coinflip = @user.coinflips.create(user_params)
     @coinflip.coin_result = [true, false].sample
     @coinflip.save
-    # TODO call on user to compute based on bet, coin result and decision
+    @user.update_balance(@coinflip.bet, @coinflip.coin_result == @coinflip.winning_flip)
+    @user.save
     redirect_to user_path(@user)
   end
  
   private
     def user_params
-      params.require(:coinflip).permit(:bet)
+      params.require(:coinflip).permit(:bet, :winning_flip)
     end
 end

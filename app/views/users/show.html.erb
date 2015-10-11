@@ -20,6 +20,10 @@
     Coin Result : <label id="display"> <%= @user.last_coin_flip_result %> </label> <br>
   </p>
   <p>
-    <%= f.submit %>
+    <% if @user.coinflips.count > 0 %>
+      <%= f.submit "Flip", :id => "coinflipsubmitdelay", :disabled => true %>
+    <% else %>
+      <%= f.submit "Flip", :id => "coinflipsubmit" %>
+    <% end %>
   </p>
 <% end %>

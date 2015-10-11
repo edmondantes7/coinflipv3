@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
     delta = delta * -1 if did_win == false
     self.balance = self.balance + delta
   end
+
+  def check_if_game_should_continue
+    return self.balance >= 1
+  end
 end

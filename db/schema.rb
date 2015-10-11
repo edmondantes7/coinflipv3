@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151010223441) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "coinflips", force: :cascade do |t|
     t.integer  "bet"
     t.boolean  "coin_result"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20151010223441) do
     t.boolean  "winning_flip"
   end
 
-  add_index "coinflips", ["user_id"], name: "index_coinflips_on_user_id"
+  add_index "coinflips", ["user_id"], name: "index_coinflips_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -31,4 +34,5 @@ ActiveRecord::Schema.define(version: 20151010223441) do
     t.integer  "balance"
   end
 
+  add_foreign_key "coinflips", "users"
 end

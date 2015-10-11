@@ -5,6 +5,7 @@
 wait_time = 10000
 
 $(".users.show").ready ->
+  $('#bet_text_field').focus()
   button = $('#coinflipsubmitdelay')
   oldValue = button.val()
   button.prop 'disabled', true

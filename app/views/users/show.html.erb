@@ -11,7 +11,7 @@
   <%= label :winning_flip_false, 'Tail' %>
   </p>
   <p>
-    <%= f.label :bet %><br>  <%= f.text_field :bet %>
+    <%= f.label :bet, :id => "bet_text_field" %><br>  <%= f.text_field :bet %>
   </p>
   <p>
   Counter : <label id="counter"> <%= @user.coinflips.count %> </label> <br>

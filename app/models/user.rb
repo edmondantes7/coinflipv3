@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   end
 
   def check_if_game_should_continue
-    return self.balance >= 1
+    self.balance >= 1
+  end
+
+  def balance_is_less_than_bet(bet)
+    self.balance < bet
   end
 end

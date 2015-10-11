@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :users do
-    resources :coinflips
+  resources :users, only: [:show, :new, :create] do
+    resources :coinflips, only: [:create]
   end
   root 'users#new'
 

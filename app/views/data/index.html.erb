@@ -1,0 +1,68 @@
+<%= link_to "Download as Excel", data_path(format: "xlsx") %>
+<table>  
+  <% @users.each do |user| %>
+    <tr>
+      <th> "ID" </th>
+      <th> "Name" </th>
+      <th> "Email" </th>
+      <th> "Age" </th>
+      <th> "Profession" </th>
+      <th> "Date"</th>
+      <th> "Highest Level of Education" </th>
+      <th> "Have you heard of Kelly Criterion?" </th>
+      <th> "What did you think we were testing for?" </th>
+      <th> "What would you have done differently" </th>
+      <th> "Did you think the coin was fair?" </th>
+    </tr>
+    <br>
+    <tr>
+      <td> <%= user.id %> </td>
+      <td> <%= user.name %> </td>
+      <td> <%= user.email %> </td>
+      <td> <%= user.age %> </td>
+      <td> <%= user.profession %> </td>
+      <td> <%= user.created_at %> </td>
+      <td> <%= user.education %> </td>
+      <% if user.survey then%>
+        <td> <%= user.survey.fam_with_response %> </td>
+        <td> <%= user.survey.test_for_response %> </td>
+        <td> <%= user.survey.done_diff_response %> </td>
+        <td> <%= user.survey.was_fair_response %> </td>
+      <% end %>
+    </tr>
+    <th>Bets</th>
+    <% user.coinflips.each do |coinflip| %>
+      <tr>
+        <% def heads_tails(flip)
+          if flip then
+            return "Heads"
+          else
+            return "Tails"
+          end
+        end %>
+
+        <td>
+          For User <%= coinflip.user_id %>
+        </td>
+        <td>
+          <%= heads_tails(coinflip.coin_result) %>
+        </td>
+        <td>
+          <%= coinflip.bet %>
+        </td>
+        <td>
+          <%= heads_tails(coinflip.winning_flip) %> wins
+        </td>
+        <td>
+          <%= coinflip.balance %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<style type="text/css">
+  table, th, td {
+    border: 1px solid black;
+  }
+</style>

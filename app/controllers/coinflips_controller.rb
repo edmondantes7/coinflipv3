@@ -1,6 +1,13 @@
 class CoinflipsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
+    durationOfGame = Constants::GAME_MINUTE_DURATION.minutes + Constants::GAME_SECOND_DURATION.seconds
+    timePassed = Time.now - durationOfGame
+    if ((Time.now - durationOfGame) > @user.created_at) then
+      redirect_to url_for(:controller => :surveys, :action => :new)
+      return
+    end
+
     @coinflip = @user.coinflips.new(user_params)
     if @user.balance_is_less_than_bet(@coinflip.bet) then
       flash[:error] = "Bet must be less than or equal to your balance"
@@ -9,14 +16,14 @@ class CoinflipsController < ApplicationController
     end
     @coinflip.coin_result = [true, false].sample
     @user.update_balance(@coinflip.bet, @coinflip.coin_result == @coinflip.winning_flip)
+    @coinflip.balance = @user.balance
     @coinflip.save
     @user.save
 
     if @user.check_if_game_should_continue then
       redirect_to user_path(@user)
     else
-      flash[:notice] = "Thanks for playing!"
-      redirect_to root_path
+      redirect_to url_for(:controller => :surveys, :action => :new)
     end
   end
  

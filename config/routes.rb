@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create] do
     resources :coinflips, only: [:create]
+    resources :surveys, only: [:create, :new]
   end
+  resources :data, only: [:index]
   root 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.

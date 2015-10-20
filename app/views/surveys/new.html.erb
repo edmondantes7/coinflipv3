@@ -1,0 +1,29 @@
+<h1>Thanks for playing!</h1>
+
+<%= form_for :survey, url: user_surveys_path do |f| %>
+  <p>
+    Have you heard of Kelly Criterion?
+    <%= f.radio_button :fam_with_response, true, :checked => true %> 
+    <%= label :fam_with_response_true, 'Yes' %>
+    <%= f.radio_button :fam_with_response, false %>
+    <%= label :fam_with_response_false, 'No' %>
+  </p>
+  <p>
+    <%= f.label "What do you think we were testing for?" %><br>
+    <%= f.text_field(:test_for_response) %>
+  </p>
+  <p>
+    <%= f.label "What would you have done differently?" %><br>
+    <%= f.text_area(:done_diff_response) %>
+  </p>
+  <p>
+    Did you think the coin was fair?  
+    <%= f.radio_button :was_fair_response, true, :checked => true %> 
+    <%= label :was_fair_response_true, 'Yes' %>
+    <%= f.radio_button :was_fair_response, false %>
+    <%= label :was_fair_response_false, 'No' %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

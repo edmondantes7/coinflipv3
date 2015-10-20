@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+  acts_as_xlsx
   has_many :coinflips
+  has_one  :survey
 
   def last_coin_flip_exists
     return self.coinflips.order(:created_at).last
@@ -24,5 +26,14 @@ class User < ActiveRecord::Base
 
   def balance_is_less_than_bet(bet)
     self.balance < bet
+  end
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |user|
+        csv << user.attributes.values_at(*column_names)
+      end
+    end
   end
 end

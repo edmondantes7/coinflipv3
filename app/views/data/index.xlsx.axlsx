@@ -1,0 +1,35 @@
+wb = xlsx_package.workbook
+
+@users.each do |user|
+  wb.add_worksheet(name: user.id.to_s) do |sheet|
+    sheet.add_row ["ID", user.id]
+    sheet.add_row ["Name", user.name]
+    sheet.add_row ["Email", user.email]
+    sheet.add_row ["Age", user.age]
+    sheet.add_row ["Profession", user.profession]
+    sheet.add_row ["Date", user.created_at]
+    sheet.add_row ["Highest Level of Education", user.education]
+    if user.survey then
+      sheet.add_row ["Have you heard of Kelly Criterion?", user.survey.fam_with_response]
+      sheet.add_row ["What did you think we were testing for?", user.survey.test_for_response]
+      sheet.add_row ["What would you have done differently", user.survey.done_diff_response]
+      sheet.add_row ["Did you think the coin was fair?", user.survey.was_fair_response]
+    else
+      sheet.add_row ["", ""]
+      sheet.add_row ["", ""]
+      sheet.add_row ["", ""]
+      sheet.add_row ["", ""]
+    end
+    user.coinflips.each do |coinflip|
+      def heads_tails(flip)
+        if flip then
+          return "Heads"
+        else
+          return "Tails"
+        end
+      end
+
+      sheet.add_row ["Bet", heads_tails(coinflip.coin_result), coinflip.bet, "#{heads_tails(coinflip.winning_flip)} was the winning flip", coinflip.balance]
+    end
+  end
+end

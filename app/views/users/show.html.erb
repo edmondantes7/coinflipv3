@@ -1,29 +1,3 @@
+<%= render 'timer' %>
 
-<h2>Flip a coin:</h2>
-<%= form_for([@user, @user.coinflips.build]) do |f| %>
-  <p>
-  Total :  <label id="total"> <%= @user.balance %> </label> <br>    
-  </p>
-  <p>
-  <%= f.radio_button :winning_flip, true, :checked => true %> 
-  <%= label :winning_flip_true, 'Head' %>
-  <%= f.radio_button :winning_flip, false %>
-  <%= label :winning_flip_false, 'Tail' %>
-  </p>
-  <p>
-    <%= f.label :bet, :id => "bet_text_field" %><br>  <%= f.text_field :bet %>
-  </p>
-  <p>
-  Counter : <label id="counter"> <%= @user.coinflips.count %> </label> <br>
-  </p>
-  <p>
-    Coin Result : <label id="display"> <%= @user.last_coin_flip_result %> </label> <br>
-  </p>
-  <p>
-    <% if @user.coinflips.count > 0 %>
-      <%= f.submit "Flip", :id => "coinflipsubmitdelay", :disabled => true %>
-    <% else %>
-      <%= f.submit "Flip", :id => "coinflipsubmit" %>
-    <% end %>
-  </p>
-<% end %>
+<%= render partial: 'coinflip' %>

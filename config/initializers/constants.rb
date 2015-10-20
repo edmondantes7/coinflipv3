@@ -1,3 +1,6 @@
 module Constants
   STARTING_BALANCE = 100
+  GAME_MINUTE_DURATION = 30
+  GAME_SECOND_DURATION = 0
 end
+

@@ -6,6 +6,22 @@
     <%= f.text_field :name %>
   </p>
   <p>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </p>
+  <p>
+    <%= f.label :education %><br>
+    <%= f.text_field :education %>
+  </p>
+  <p>
+    <%= f.label :profession %><br>
+    <%= f.text_field :profession %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
 <% end %>

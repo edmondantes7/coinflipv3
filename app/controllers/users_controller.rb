@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-    #render plain: params[:user].inspect
   end
 
   def show
@@ -21,6 +20,8 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name,:profession, :email, :age, :education)
     end
 end
+
+

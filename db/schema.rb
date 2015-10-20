@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010223441) do
+ActiveRecord::Schema.define(version: 20151018190408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "coinflips", force: :cascade do |t|
     t.integer  "bet"
+    t.integer  "balance"
     t.boolean  "coin_result"
     t.integer  "user_id"
     t.datetime "created_at",   null: false
@@ -27,12 +28,29 @@ ActiveRecord::Schema.define(version: 20151010223441) do
 
   add_index "coinflips", ["user_id"], name: "index_coinflips_on_user_id", using: :btree
 
+  create_table "surveys", force: :cascade do |t|
+    t.string   "test_for_response"
+    t.string   "done_diff_response"
+    t.boolean  "fam_with_response"
+    t.boolean  "was_fair_response"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "surveys", ["user_id"], name: "index_surveys_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
+    t.string   "email"
+    t.string   "profession"
+    t.string   "education"
+    t.integer  "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "balance"
   end
 
   add_foreign_key "coinflips", "users"
+  add_foreign_key "surveys", "users"
 end

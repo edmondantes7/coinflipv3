@@ -6,7 +6,7 @@
     Total : <label id="total_balance"> <%= @user.balance %> </label> <br>    
     </p>
     <p>
-    <%= f.radio_button :winning_flip, true, :checked => true %> 
+    <%= f.radio_button :winning_flip, true %> 
     <%= label :winning_flip_true, 'Head' %>
     <%= f.radio_button :winning_flip, false %>
     <%= label :winning_flip_false, 'Tail' %>

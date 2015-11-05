@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     resources :surveys, only: [:create, :new]
   end
   resources :data, only: [:index]
-  root 'users#new'
+  resources :introduction, only: [:index]
+  root 'introduction#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

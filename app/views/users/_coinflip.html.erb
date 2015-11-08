@@ -3,7 +3,7 @@
   <p id="hidden_maximum_winning_price" hidden> <%= Constants::MAXIMUM_WINNING_PRICE %> </p>
   <%= form_for([@user, @user.coinflips.build]) do |f| %>
     <p>
-    Total : <label id="total_balance"> <%= @user.balance %> </label> <br>    
+    Total : <label id="total_balance">$<%= @user.balance %> </label> <br>    
     </p>
     <p>
     <%= f.radio_button :winning_flip, true %> 
@@ -12,7 +12,7 @@
     <%= label :winning_flip_false, 'Tail' %>
     </p>
     <p>
-    <%= f.label :bet, :id => "bet_label" %><br>  <%= f.text_field :bet, :id => "bet_text_field" %>
+    <%= f.label :bet, :id => "bet_label" %><br>$<%= f.text_field :bet, :id => "bet_text_field" %>
     </p>
     <p>
     Counter : <label id="counter"> <%= @user.coinflips.count %> </label> <br>

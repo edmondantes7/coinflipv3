@@ -34,16 +34,16 @@
       <table class="table table-hover">
         <tr>
           <th>Result</th>
-          <th>Conversions</th>
-          <th>Spend</th>
+          <th>Bet Amount</th>
+          <th>Ending Balance</th>
         </tr>
         <%= @user.coinflips.count %>
         <% @user.coinflips.each do |coinflip| %>
         <% if coinflip.persisted? then %>
           <tr>
             <td> <%= coinflip.convert(coinflip.coin_result) %> </td>
-            <td> <%= coinflip.convert(coinflip.coin_result) %> </td>
-            <td> <%= coinflip.convert(coinflip.coin_result) %> </td>
+            <td> <%= coinflip.convert(coinflip.bet) %> </td>
+            <td> <%= coinflip.convert(coinflip.balance) %> </td>
           </tr>
         <% end %>
         <% end %>

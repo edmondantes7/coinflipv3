@@ -1,7 +1,4 @@
 <div id="container">
-  <div class="row">
-    <div class="col-lg-6 col-lg-offset-3 text-center">center</div>
-  </div>
       <h2>Flip a coin:</h2>
       <p id="hidden_maximum_winning_price" hidden> <%= Constants::MAXIMUM_WINNING_PRICE %> </p>
       <%= form_for([@user, @user.coinflips.build]) do |f| %>
@@ -42,8 +39,8 @@
         <% if coinflip.persisted? then %>
           <tr>
             <td> <%= coinflip.convert(coinflip.coin_result) %> </td>
-            <td> <%= coinflip.convert(coinflip.bet) %> </td>
-            <td> <%= coinflip.convert(coinflip.balance) %> </td>
+            <td> <%= coinflip.bet %> </td>
+            <td> <%= coinflip.balance %> </td>
           </tr>
         <% end %>
         <% end %>

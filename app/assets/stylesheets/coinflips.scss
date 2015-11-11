@@ -1,3 +1,54 @@
 // Place all the styles related to the Coinflips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#coinflip-container {
+  position: relative;
+  width: 80%;
+  min-height: 400px;
+  margin: 100px auto;
+  color: rgb(41,41,41);
+  border: 1px solid white;
+  padding: 25px;
+  margin: 25px;
+  background-color: rgba(241,241,241,0.7);
+  border-radius: 10px;
+  left: 5%;
+  top: 40px;
+}
+
+#coinflip-container #animation {
+	width: 50px;
+	background-color : transparent;
+}
+
+#timer {
+	position: fixed;
+    top: 0;
+    left: 10;
+    margin: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+#balance {
+	position: fixed;
+    top: 0;
+    width: 20%;
+    left: 40%;
+    margin: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+#counter {
+	position: fixed;
+    top: 0;
+    right:10px;
+    margin: 10px;
+    font-size: 16px;
+    color: white;
+}
+

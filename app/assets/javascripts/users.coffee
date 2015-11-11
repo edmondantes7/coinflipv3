@@ -16,6 +16,7 @@ $(".users.show").ready ->
       return
     button.prop 'disabled', false
     return
+  $("#animation").show()
   $('#bet_text_field').bind 'change paste keyup', ->
     betTextFieldValue = $('#bet_text_field').val()
     if isNaN betTextFieldValue
@@ -28,6 +29,7 @@ $(".users.show").ready ->
     return
   setTimeout (->
     waiting = false
+    $("#animation").hide()
     button.val oldValue
     radio_button = $('input[name="coinflip[winning_flip]"]:checked').val()
     if typeof radio_button == 'undefined'

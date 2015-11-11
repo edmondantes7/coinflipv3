@@ -1,10 +1,17 @@
-<div id="container">
+<div id="welcome-container">
+  <img id="mountains" src="http://www.elmfunds.com/img/bg4.jpg" />
+  <p id="balance">Balance : <label id="total_balance">$<%= @user.balance %> </label></p>
+    <p id="counter">Counter : <label id="counter"> <%= @user.coinflips.count %> </label></p>
+      <div id="coinflip-container">
       <h2>Flip a coin:</h2>
-      <p id="hidden_maximum_winning_price" hidden> <%= Constants::MAXIMUM_WINNING_PRICE %> </p>
+        <% if @user.coinflips.count > 0 %>
+          <div id="animation"><img src="http://www.animateit.net/data/media/90/47arw.gif" /></div>
+    <% else %>
+            <div id="animation"><img src="http://www.animateit.net/data/media/90/47arw.gif" hidden/></div>
+        <% end %>
+
       <%= form_for([@user, @user.coinflips.build]) do |f| %>
-        <p>
-        Total : <label id="total_balance">$<%= @user.balance %> </label> <br>    
-        </p>
+        
         <p>
         <%= f.radio_button :winning_flip, true %> 
         <%= label :winning_flip_true, 'Head' %>
@@ -14,9 +21,7 @@
         <p>
         <%= f.label :bet, :id => "bet_label" %><br>$<%= f.text_field :bet, :id => "bet_text_field",:autocomplete => :off%>
         </p>
-        <p>
-        Counter : <label id="counter"> <%= @user.coinflips.count %> </label> <br>
-        </p>
+        
         <p>
           Coin Result : <label id="display"> <%= @user.last_coin_flip_result %> </label> <br>
         </p>
@@ -28,6 +33,7 @@
           <% end %>
         </p>
       <% end %>
+
       <table class="table table-hover">
         <tr>
           <th>Result</th>
@@ -38,6 +44,7 @@
         <% @user.coinflips.each do |coinflip| %>
         <% if coinflip.persisted? then %>
           <tr>
+           
             <td> <%= coinflip.convert(coinflip.coin_result) %> </td>
             <td> <%= coinflip.bet %> </td>
             <td> <%= coinflip.balance %> </td>
@@ -45,4 +52,5 @@
         <% end %>
         <% end %>
         </table>
+        </div>
 </div>

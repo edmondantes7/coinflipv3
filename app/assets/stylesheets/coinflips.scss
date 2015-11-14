@@ -2,11 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+* {
+  font-family: 'Arial Hebrew';
+}
+  
 
 #coinflip-container {
   position: relative;
-  width: 80%;
+  width: 50%;
   min-height: 400px;
   margin: 100px auto;
   color: rgb(41,41,41);
@@ -15,40 +18,135 @@
   margin: 25px;
   background-color: rgba(241,241,241,0.7);
   border-radius: 10px;
-  left: 5%;
-  top: 40px;
+  left: 25%;
+  top: 100px;
 }
 
 #coinflip-container #animation {
-	width: 50px;
-	background-color : transparent;
+  
+  position: relative;
+  width: 50px;
+  background-color : transparent;
+  right: -145px;
+}
+
+#coinflip-container #betting-on {
+  
+  position: relative;
+  right: -20px;
+  color: rgb(72,180,118);
+  font-weight: bold;
+}
+
+#coinflip-container p {
+  
+  font-family: 'Arial Hebrew';
+  font-size: 16px;
+  font-weight: normal;
+}
+
+#title {
+  font-size: 25px;
+  color: rgb(41,41,41);
+  text-align: center;
+  color: rgb(72,180,118);
 }
 
 #timer {
-	position: fixed;
+  position: fixed;
     top: 0;
     left: 10;
     margin: 10px;
-    font-size: 16px;
+    font-size: 20px;
     color: white;
 }
 
-#balance {
-	position: fixed;
-    top: 0;
-    width: 20%;
-    left: 40%;
-    margin: 10px;
+#right-container-load {
+  position: absolute;
     font-size: 16px;
-    color: white;
+    color: rgb(41,41,41);
+    padding: 25px;
+  margin: 25px;
+    right: 0;
+    top: 70px;
 }
 
-#counter {
-	position: fixed;
+#right-container-static {
+  position: absolute;
+    font-size: 16px;
+    color: rgb(41,41,41);
+    padding: 25px;
+  margin: 25px;
+    right: 0;
+    top: 70px;
+}
+
+#counter_css {
+  position: fixed;
     top: 0;
     right:10px;
     margin: 10px;
-    font-size: 16px;
+    font-size: 20px;
     color: white;
+}
+
+#history-table {
+  table-layout : fixed;
+  text-align: center;
+}
+
+#history-table th {
+  table-layout : fixed;
+  text-align: center;
+}
+
+#total_balance {
+  color: rgb(72,180,118);
+  font-size: 60px;
+}
+
+#coinflip_submit_delay {
+  background-color: rgb(72,180,118);
+  color: rgb(241,241,241);
+  width: 208px;
+}
+
+#coinflip_submit {
+  background-color: rgb(72,180,118);
+  color: rgb(241,241,241);
+  width: 208px;
+}
+
+#bet_label{
+  width: 75px;
+  font-size: 16px;
+}
+
+
+#bet_text_field{
+  width: 125px;
+}
+
+#true_label{
+  width: 120px;
+}
+
+#won {
+  color: rgb(72,180,118);
+}
+
+#lost {
+  color: red;
+}
+
+#warning {
+  color: red;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+    top: 0;
+    right:10px;
+    margin: 10px;
+    font-size: 20px;
 }
 

@@ -32,7 +32,9 @@ $( document ).ready(
     function updateClock() {
       $('#minute').text(minute);
       if (second <= 0 ) {
-        $('#second').text("0");
+        $('#second').text("00");
+      } else if (second < 10 ){
+        $('#second').text("0" + second);
       } else {
         $('#second').text(second);
       }
@@ -59,3 +61,4 @@ $( document ).ready(
     }
   }
 );
+

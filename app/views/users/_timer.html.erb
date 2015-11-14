@@ -1,9 +1,11 @@
-<div class="timer" id="timer"> 
-  <p class="hidden-time" hidden> <%= @user.created_at.to_f * 1000 %> </p>
-  <p class="hidden-minute-duration" hidden> <%= Constants::GAME_MINUTE_DURATION %> </p>
-  <p class="hidden-second-duration" hidden> <%= Constants::GAME_SECOND_DURATION %> </p>
+<div id="timer"> 
+  <p class="hidden-time" hidden><%= @user.created_at.to_f * 1000 %></p>
+  <p class="hidden-minute-duration" hidden><%= Constants::GAME_MINUTE_DURATION %></p>
+  <p class="hidden-second-duration" hidden><%= Constants::GAME_SECOND_DURATION %></p>
   <span>Time left = </span>
+  <strong>
   <span id="minute"></span>
   <span>:</span>
   <span id="second"></span>
+  </strong>
 </div>

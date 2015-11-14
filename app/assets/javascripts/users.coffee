@@ -4,6 +4,7 @@
 
 wait_time = 10000 #in milliseconds
 
+
 $(".users.show").ready ->
   $('#bet_label').focus()
   button = $('#coinflip_submit_delay')
@@ -16,7 +17,7 @@ $(".users.show").ready ->
       return
     button.prop 'disabled', false
     return
-  $("#animation").show()
+  $('#coinflip_submit_delay').hide(100)
   $('#bet_text_field').bind 'change paste keyup', ->
     betTextFieldValue = $('#bet_text_field').val()
     if isNaN betTextFieldValue
@@ -29,7 +30,11 @@ $(".users.show").ready ->
     return
   setTimeout (->
     waiting = false
-    $("#animation").hide()
+    $("#animation").hide(100)
+    $("#betting-on").hide(100)
+    $("#right-container-load").show(100)
+    $("#history-table").show(100)
+    $("#coinflip_submit_delay").show(100)
     button.val oldValue
     radio_button = $('input[name="coinflip[winning_flip]"]:checked').val()
     if typeof radio_button == 'undefined'
@@ -40,3 +45,7 @@ $(".users.show").ready ->
   return
 
 $("")
+
+
+
+

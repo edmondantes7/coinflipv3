@@ -10,22 +10,30 @@ class User < ActiveRecord::Base
   def last_coin_flip_result
     last_coin_flip = last_coin_flip_exists
     return "Please flip" if !last_coin_flip
-    return "Head" if last_coin_flip.coin_result
-    return "Tail"
+    return "Heads" if last_coin_flip.coin_result
+    return "Tails"
   end
 
   def update_balance(bet_amount, did_win)
-    delta = bet_amount
-    delta = delta * -1 if did_win == false
-    self.balance = self.balance + delta
+    begin
+      delta = 1.0 * bet_amount
+      delta = delta * -1.0 if did_win == false
+      self.balance = self.balance + delta
+    rescue
+      self.balance = self.balance
+    end
   end
 
   def check_if_game_should_continue
-    self.balance >= 1
+    self.balance > 0
   end
 
   def balance_is_less_than_bet(bet)
-    self.balance < bet
+    begin
+      self.balance < bet
+    rescue
+      false
+    end
   end
 
   def self.to_csv(options = {})

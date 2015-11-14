@@ -1,29 +1,62 @@
-<h1>Thanks for playing!</h1>
-
+<div id="welcome-container">
+  
+  <img id="mountains" src="http://www.elmfunds.com/img/bg4.jpg" />
+  <div id="welcome-text-container">
+  <% if @user.balance <= 0 then %>
+    <h1 id="title"><span id="lost">Oops, you are bankrupt.</span> Thanks for playing!</h1><br>
+  <% else %>
+    <h1 id="title">You finished the game with <%= number_to_currency(@user.balance, :precision => 2) %>. Thanks for playing!</h1><br>
+  <% end %> 
+    
 <%= form_for :survey, url: user_surveys_path do |f| %>
+
+  <div>
+    <%= f.label "What do you think we were testing for?", class:"q-labels",:autocomplete => :off, :required => true   %>
+    <%= f.text_area(:test_for_response)%>
+  </div>
+  
   <p>
-    Have you heard of Kelly Criterion?
-    <%= f.radio_button :fam_with_response, true, :checked => true %> 
-    <%= label :fam_with_response_true, 'Yes' %>
-    <%= f.radio_button :fam_with_response, false %>
-    <%= label :fam_with_response_false, 'No' %>
+    <p class="q-labels">Did you think the coin was really 60/40?</p>
+    <%= f.radio_button :was_fair_response, true, :checked => true, :class => "q-radio" %> 
+    <%= label :was_fair_response_true, 'Yes', :class => "q-radio"  %>
+    <%= f.radio_button :was_fair_response, false, :class => "q-radio"  %>
+    <%= label :was_fair_response_false, 'No', :class => "q-radio" %>
   </p>
+    
   <p>
-    <%= f.label "What do you think we were testing for?" %><br>
-    <%= f.text_field(:test_for_response) %>
+    <p class="q-labels">Did you think you were lucky?</p>
+    <%= f.radio_button :was_luck_response, true, :checked => true, :class => "q-radio"  %> 
+    <%= label :was_luck_response_true, 'Yes', :class => "q-radio"  %>
+    <%= f.radio_button :was_luck_response, false, :class => "q-radio"  %>
+    <%= label :was_luck_response_false, 'No', :class => "q-radio"  %>
   </p>
+    
   <p>
-    <%= f.label "What would you have done differently?" %><br>
-    <%= f.text_area(:done_diff_response) %>
+    <p class="q-labels">Did you think that you bet sensibly?</p>
+    <%= f.radio_button :was_sensible_response, true, :checked => true, :class => "q-radio"  %> 
+    <%= label :was_sensible_response_true, 'Yes', :class => "q-radio"  %>
+    <%= f.radio_button :was_sensible_response, false, :class => "q-radio"  %>
+    <%= label :was_sensible_response_false, 'No', :class => "q-radio"  %>
   </p>
+  
+  <div>
+    <%= f.label "What would you have done differently?", class:"q-labels",:autocomplete => :off, :required => true   %>
+    <%= f.text_area(:done_diff_response)%>
+  </div>
+  
   <p>
-    Did you think the coin was fair?  
-    <%= f.radio_button :was_fair_response, true, :checked => true %> 
-    <%= label :was_fair_response_true, 'Yes' %>
-    <%= f.radio_button :was_fair_response, false %>
-    <%= label :was_fair_response_false, 'No' %>
+    <p class="q-labels">Have you heard of Kelly Criterion?</p>
+    <%= f.radio_button :fam_with_response, true, :checked => true, :class => "q-radio"  %> 
+    <%= label :fam_with_response_true, 'Yes', :class => "q-radio"  %>
+    <%= f.radio_button :fam_with_response, false, :class => "q-radio"  %>
+    <%= label :fam_with_response_false, 'No', :class => "q-radio"  %>
   </p>
-  <p>
-    <%= f.submit %>
+  
+   <p id="button">
+
+        <%= f.submit "Submit", :id => "coinflip_submit" %>
   </p>
 <% end %>
+  </div>
+</div>
+

@@ -16,6 +16,6 @@ class SurveysController < ApplicationController
  
   private
     def survey_params
-      params.require(:survey).permit(:test_for_response, :done_diff_response, :fam_with_response, :was_fair_response)
+      params.require(:survey).permit(:test_for_response, :was_fair_response, :was_luck_response, :was_sensible_response, :done_diff_response, :fam_with_response)
     end
 end

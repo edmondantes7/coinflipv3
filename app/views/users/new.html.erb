@@ -1,34 +1,36 @@
+
 <div id="welcome-container">
   <img id="mountains" src="http://www.elmfunds.com/img/bg4.jpg" />
   
   <div id="welcome-text-container">
   
-  <h1 id="welcome-text"> Welcome! </h1>
+  <h1 id="title"> Welcome! </h1>
   <%= form_for :user, url: users_path do |f| %>
   <br>
   <p>
     <%= f.label :name, class:"form-labels" %>
-    <%= f.text_field :name, class:"form-fields",:autocomplete => :off %>
+    <%= f.text_field :name, class:"form-fields",:autocomplete => :off, :required => true %>
   </p>
   <p>
     <%= f.label :email, class:"form-labels" %>
-    <%= f.email_field :email, class:"form-fields",:autocomplete => :off %>
+    <%= f.email_field :email, class:"form-fields",:autocomplete => :off, :required => true %>
   </p>
   <p>
     <%= f.label :age, class:"form-labels" %>
-    <%= f.number_field :age, class:"form-fields",:autocomplete => :off %>
+    <%= f.number_field :age, class:"form-fields",:autocomplete => :off, :required => true %>
   </p>
   <p>
     <%= f.label :education, class:"form-labels" %>
-    <%= f.text_field :education, class:"form-fields",:autocomplete => :off %>
+    <%= f.text_field :education, class:"form-fields",:autocomplete => :off, :required => true %>
   </p>
   <p>
     <%= f.label :profession, class:"form-labels" %>
-    <%= f.text_field :profession, class:"form-fields",:autocomplete => :off %>
+    <%= f.text_field :profession, class:"form-fields",:autocomplete => :off, :required => true %>
   </p>
   <br>
-  <p>
-    <%= f.submit %>
+   <p id="button">
+
+        <%= f.submit "Continue", :id => "coinflip_submit" %>
   </p>
   <% end %>
 

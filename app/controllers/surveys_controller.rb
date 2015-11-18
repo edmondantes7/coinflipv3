@@ -10,12 +10,12 @@ class SurveysController < ApplicationController
     @survey.save
     @user.save
     if @user.save then
-      redirect_to root_path
+      redirect_to '/thanks'
     end
   end
  
   private
     def survey_params
-      params.require(:survey).permit(:test_for_response, :was_fair_response, :was_luck_response, :was_sensible_response, :done_diff_response, :fam_with_response)
+      params.require(:survey).permit(:test_for_response, :done_diff_response, :fam_with_response, :was_fair_response, :was_luck_response, :was_sensible_response, :own_money_response, :how_much_response, :exp_min_response, :thought_response, :stock_response, :stock_how_response, :general_comments)
     end
 end

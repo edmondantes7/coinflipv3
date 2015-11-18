@@ -9,7 +9,12 @@ class CoinflipsController < ApplicationController
     end
 
     @coinflip = @user.coinflips.new(user_params)
-    @coinflip.coin_result = [true, false].sample
+    if @user.balance_is_less_than_bet(@coinflip.bet) then
+      flash[:error] = "Bet must be less than or equal to your balance"
+      redirect_to user_path(@user) 
+      return 
+    end
+    @coinflip.coin_result = [true, true, true, false, false].sample
     @user.update_balance(@coinflip.bet, @coinflip.coin_result == @coinflip.winning_flip)
     @coinflip.balance = @user.balance
     @coinflip.save

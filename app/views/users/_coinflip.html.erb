@@ -5,15 +5,11 @@
   <img id="mountains" src="http://www.elmfunds.com/img/bg4.jpg" />
   
     <p id="counter_css">Counter = <%= @user.coinflips.count %></p>
-    
-    <% if @user.balance >= 250 then %>
-    <p id="warning">You have reached the cap on your betting winnings!</p>
-    <% end %>
       
   
   <div id="coinflip-container">
     <h2 id="title">Place your bet and flip the coin</h2><br><br>
-
+    <p id="hidden_maximum_winning_price" hidden> <%= Constants::MAXIMUM_WINNING_PRICE %> </p>
     <%= form_for([@user, @user.coinflips.build]) do |f| %>
         
         <p>
@@ -46,15 +42,15 @@
     <% else %>
     <div id="right-container-load">  
     <% end %>
-    <p id="balance">Balance : <br><label id="total_balance"><%= number_to_currency(@user.balance, :precision => 2) %> </label></p>          
+    <p id="balance">Balance : <br><span id="dollar">$</span><label id="total_balance"><%= @user.balance %> </label></p>          
   
   <% @user.coinflips.order("created_at desc").first(1).each do |coinflip| %>
     <% if coinflip.convert(coinflip.winning_flip) == coinflip.convert(coinflip.coin_result) %>
         <p id="coin-result">Well done, it's <span id="won"><%= @user.last_coin_flip_result %></span></p>
-        <audio onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 10000)"><source src="http://www.elmfunds.com/upload/cheer.mp3" ></audio>
+        <audio onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 4000)"><source src="http://elmfunds.com/upload/coinflip/cash.wav" ></audio>
       <% else %>
         <p id="coin-result">Sorry, it was <span id="lost"><%= @user.last_coin_flip_result %></span></p>
-        <audio onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 10000)"><source src="http://www.elmfunds.com/upload/boo.wav" ></audio>
+        <audio onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 4000)"><source src="http://elmfunds.com/upload/coinflip/boing.wav" ></audio>
         <% end %>
     <% end %>
     
@@ -65,14 +61,14 @@
     <div id="right-container-static">  
       
   <% if @user.coinflips.count > 0 %>
-        <div id="animation"><img src="http://www.sevenoaksart.co.uk/images/1dollar.gif" /></div> 
+        <div id="animation"><img src="http://elmfunds.com/upload/coinflip/coin.gif" /></div> 
         <br><br>
         <% @user.coinflips.order("created_at desc").first(1).each do |coinflip| %>
         <p id="betting-on">You are betting <%= number_to_currency(coinflip.bet, :precision => 2) %> on <%= coinflip.convert(coinflip.winning_flip) %>...</p>
         <% end %>
         
   <% else %>
-        <div id="animation"><img src="http://www.sevenoaksart.co.uk/images/1dollar.gif" hidden/></div>
+        <div id="animation"><img src="http://elmfunds.com/upload/coinflip/coin.gif" hidden/></div>
         
     <% end %>
     

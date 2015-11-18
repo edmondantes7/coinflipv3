@@ -16,8 +16,8 @@
   </div>
   
   <p>
-    <p class="q-labels">Did you think the coin was really 60/40?</p>
-    <%= f.radio_button :was_fair_response, true, :checked => true, :class => "q-radio" %> 
+    <p class="q-labels">Do you think the coin did actually have a 60% chance of coming up heads?</p>
+    <%= f.radio_button :was_fair_response, true, :class => "q-radio" %> 
     <%= label :was_fair_response_true, 'Yes', :class => "q-radio"  %>
     <%= f.radio_button :was_fair_response, false, :class => "q-radio"  %>
     <%= label :was_fair_response_false, 'No', :class => "q-radio" %>
@@ -25,7 +25,7 @@
     
   <p>
     <p class="q-labels">Did you think you were lucky?</p>
-    <%= f.radio_button :was_luck_response, true, :checked => true, :class => "q-radio"  %> 
+    <%= f.radio_button :was_luck_response, true, :class => "q-radio"  %> 
     <%= label :was_luck_response_true, 'Yes', :class => "q-radio"  %>
     <%= f.radio_button :was_luck_response, false, :class => "q-radio"  %>
     <%= label :was_luck_response_false, 'No', :class => "q-radio"  %>
@@ -33,7 +33,7 @@
     
   <p>
     <p class="q-labels">Did you think that you bet sensibly?</p>
-    <%= f.radio_button :was_sensible_response, true, :checked => true, :class => "q-radio"  %> 
+    <%= f.radio_button :was_sensible_response, true, :class => "q-radio"  %> 
     <%= label :was_sensible_response_true, 'Yes', :class => "q-radio"  %>
     <%= f.radio_button :was_sensible_response, false, :class => "q-radio"  %>
     <%= label :was_sensible_response_false, 'No', :class => "q-radio"  %>
@@ -43,15 +43,63 @@
     <%= f.label "What would you have done differently?", class:"q-labels",:autocomplete => :off, :required => true   %>
     <%= f.text_area(:done_diff_response)%>
   </div>
+      
+  <p>
+    <p class="q-labels">Would you have been willing to put up money out of your own pocket to play and risk that money on flips?</p>
+    <%= f.radio_button :own_money_response, true, :class => "q-radio"  %> 
+    <%= label :own_money_response_true, 'Yes', :class => "q-radio"  %>
+    <%= f.radio_button :own_money_response, false, :class => "q-radio"  %>
+    <%= label :own_money_response_false, 'No', :class => "q-radio"  %>
+  </p>
   
+  <div>
+    <%= f.label "If yes, how much money would you have been willing to bet?", class:"q-labels",:autocomplete => :off %>
+    <%= f.text_area(:how_much_response)%>
+  </div>
+      
+  <p>
+    <p class="q-labels">Did you give any thought to what the maximum we would pay you would be?</p>
+    <%= f.radio_button :thought_response, true, :class => "q-radio"  %> 
+    <%= label :thought_response_true, 'Yes', :class => "q-radio"  %>
+    <%= f.radio_button :thought_response, false, :class => "q-radio"  %>
+    <%= label :thought_response_false, 'No', :class => "q-radio"  %>
+  </p>
+
+  
+  <div>
+    <%= f.label "If yes, how much did you think the maximum would be?", class:"q-labels",:autocomplete => :off %>
+    <%= f.text_area(:exp_min_response)%>
+  </div>
+   
+      
+  <p>
+    <p class="q-labels">Do you think this game is similar to investing in the stock market?</p>
+    <%= f.radio_button :stock_response, 'yes', :class => "q-radio"  %> 
+    <%= label :stock_response_yes, 'Yes', :class => "q-radio"  %>
+    <%= f.radio_button :stock_response, 'little', :class => "q-radio"  %>
+    <%= label :stock_response_little, 'A little bit', :class => "q-radio"  %>
+    <%= f.radio_button :stock_response, 'no', :class => "q-radio"  %>
+    <%= label :stock_response_no, 'No', :class => "q-radio"  %>
+  </p>
+
+  <div>
+    <%= f.label "In what ways do you think it was similar / dissimilar", class:"q-labels",:autocomplete => :off %>
+    <%= f.text_area(:stock_how_response)%>
+  </div>
+     
   <p>
     <p class="q-labels">Have you heard of Kelly Criterion?</p>
-    <%= f.radio_button :fam_with_response, true, :checked => true, :class => "q-radio"  %> 
+    <%= f.radio_button :fam_with_response, true, :class => "q-radio"  %> 
     <%= label :fam_with_response_true, 'Yes', :class => "q-radio"  %>
     <%= f.radio_button :fam_with_response, false, :class => "q-radio"  %>
     <%= label :fam_with_response_false, 'No', :class => "q-radio"  %>
   </p>
-  
+
+  <div>
+    <%= f.label "Are there any other comments you would like to share with us?", class:"q-labels",:autocomplete => :off %>
+    <%= f.text_area(:general_comments)%>
+  </div>
+    
    <p id="button">
 
         <%= f.submit "Submit", :id => "coinflip_submit" %>
@@ -59,4 +107,5 @@
 <% end %>
   </div>
 </div>
+
 

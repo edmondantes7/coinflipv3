@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114223901) do
+ActiveRecord::Schema.define(version: 20151118031117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20151114223901) do
     t.datetime "updated_at",            null: false
     t.boolean  "was_luck_response"
     t.boolean  "was_sensible_response"
+    t.string   "how_much_response"
+    t.string   "exp_min_response"
+    t.string   "stock_how_response"
+    t.string   "stock_response"
+    t.string   "general_comments"
+    t.boolean  "own_money_response"
+    t.boolean  "thought_response"
   end
 
   add_index "surveys", ["user_id"], name: "index_surveys_on_user_id", using: :btree

@@ -31,10 +31,19 @@
       <td> <%= user.created_at %> </td>
       <td> <%= user.education %> </td>
       <% if user.survey then%>
-        <td> <%= user.survey.fam_with_response %> </td>
         <td> <%= user.survey.test_for_response %> </td>
-        <td> <%= user.survey.done_diff_response %> </td>
         <td> <%= user.survey.was_fair_response %> </td>
+        <td> <%= user.survey.was_luck_response %> </td>
+        <td> <%= user.survey.was_sensible_response %> </td>
+        <td> <%= user.survey.done_diff_response %> </td>
+        <td> <%= user.survey.own_money_response %> </td>
+        <td> <%= user.survey.how_much_response %> </td>
+        <td> <%= user.survey.thought_response %> </td>
+        <td> <%= user.survey.exp_min_response %> </td>
+        <td> <%= user.survey.stock_response %> </td>
+        <td> <%= user.survey.stock_how_response %> </td>
+        <td> <%= user.survey.was_fam_response %> </td>
+        <td> <%= user.survey.general_comments_response %> </td>
       <% end %>
     </tr>
     <th>Bets</th>

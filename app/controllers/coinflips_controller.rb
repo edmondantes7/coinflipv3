@@ -14,7 +14,7 @@ class CoinflipsController < ApplicationController
       redirect_to user_path(@user) 
       return 
     end
-    threshold_value=40
+    threshold_value=39
     @coinflip.coin_result = rand(100)>threshold_value
     @user.update_balance(@coinflip.bet, @coinflip.coin_result == @coinflip.winning_flip)
     @coinflip.balance = @user.balance

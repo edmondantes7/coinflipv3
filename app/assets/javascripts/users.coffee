@@ -26,7 +26,7 @@ $(".users.show").ready ->
     maximumWinningPrice = parseInt $('#hidden_maximum_winning_price').text()
     totalBalance = parseInt $('#total_balance').text() 
     if maximumWinningPrice < betTextField + totalBalance && betTextField <= totalBalance
-      alert 'Please note: If you win this bet, your balance will be higher than the $' + maximumWinningPrice + ' cap on your winnings. Please reconsider your bet.'
+      alert 'Good flipping. You are within range of $250, which is the maximum we will pay out to you, even if you wind up with more in your balance at the end of this experiment. You may want to reconsider your bet, in light of this $250 cap on what we’ll pay out to you. Good luck and happy flipping!'
     return
   setTimeout (->
     waiting = false

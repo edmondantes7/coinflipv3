@@ -18,9 +18,10 @@ class User < ActiveRecord::Base
     begin
       delta = 1.0 * bet_amount
       delta = delta * -1.0 if did_win == false
-      self.balance = self.balance + delta
+      temp_balance = self.balance + delta
+      self.balance = temp_balance.round(2)
     rescue
-      self.balance = self.balance
+      self.balance = self.balance.round(2)
     end
   end
 

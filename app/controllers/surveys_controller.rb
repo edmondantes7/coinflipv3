@@ -10,7 +10,7 @@ class SurveysController < ApplicationController
     @survey.save
     @user.save
     if @user.save then
-      redirect_to root_path
+      redirect_to "/thank_you"
     end
   end
  

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   resources :data, only: [:index]
   resources :introduction, only: [:index]
+  resources :thank_you, only: [:index]
   root 'introduction#index'
   
   get '/thanks', to: 'introduction#thanks'
